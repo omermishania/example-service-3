@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.global.appName }}
+  name: example-service-3-{{ .Values.global.appName }}
   namespace: {{ $.Release.Namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
@@ -16,3 +16,5 @@ spec:
       containers:
         - name: {{ .Values.global.appName }}
           image: {{ .Values.example_service_3.image.repository }}:{{ .Values.example_service_3.image.tag }}
+        imagePullSecrets:
+        - name: {{ .Values.global.pullSecret}}
