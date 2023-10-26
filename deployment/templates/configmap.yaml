@@ -3,5 +3,6 @@ kind: ConfigMap
 metadata:
   name: example-configmap-3-{{ .Values.global.appName }}
 data:
-  example.property.1: "value-1"
-  example.property.2: "value-2"
+  incidents.topic.name: {{ .Values.global.kafka.topics.category.service.incidents.name }}
+  incidentsModificationRequests.topic.name: {{ .Values.global.kafka.topics.category.service.incidentsModificationRequests.name }}
+  incidentsEnrichment.topic.name: {{ .Values.global.kafka.topics.category.service.incidentsEnrichment.name }}
